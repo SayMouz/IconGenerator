@@ -35,29 +35,9 @@ class REACH:
         print(data)
         return data
 
-    # def getPrice(self, symbol):
-    #     url = self.apiurl + '/v1/cryptocurrency/quotes/latest'
-    #     parameters = {'symbol': symbol}
-    #     r = self.session.get(url, params=parameters)
-    #     data = r.json()['data']
-    #     return data
-
 
 reach = REACH(api_key.apiKey)
 reach.get_token()
 # reach.get_tags()
 reach.get_black_icons()
 
-# response = REACH(anonyme.apiKey)
-# pp(response.getAllicons())
-
-
-# url = 'https://api.flaticon.com/v3'
-# token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDEzOGViMi1hMDE5LTRhYzEtYWJmNy0wYTMxMDYyZTQ2NzgiLCJleHAiOjE1MDg4NDM3MjIsImlkIjoiNDQ2OTE4NCJ9.FlexrpEdISo-Pfpx5dS3znUVPU229p6SlncT2AJZzN8'#Remplacer par le Token généré depuis ClearPass
-# headers = {'Authorization':'Bearer ' + token}
-# response = requests.get(url, headers=headers)
-
-# response_json = response.json() #réponse sous format JSON
-# pprint.print(response_json) #utiliser la commande pretty Print pour afficher le résultat
-# res = requests.get(url)
-# print(response)
