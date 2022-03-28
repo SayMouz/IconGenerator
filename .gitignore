@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Private data
-api_key.py
+flaticon_api_key.py
