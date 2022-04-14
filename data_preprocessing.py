@@ -52,7 +52,7 @@ class DataPreprocessing:
         png_img = Image.open(filepath)
         png_img.load()
         background = Image.new("RGB", png_img.size, (255, 255, 255))
-        background.paste(png_img, mask=png_img.split()[3])
+        background.paste(png_img, mask=png_img.getchannel('A'))
         if new_path is None:
             new_path = rf'{filepath}.jpg'
         background.save(new_path, 'JPEG', quality=100)
@@ -69,7 +69,7 @@ class DataPreprocessing:
     def clean_empty_icons(ic_data, tags_data):
         to_delete = []
         for i in range(np.shape(ic_data)[0]):
-            if np.all((ic_data == 0)):
+            if np.all((ic_data[i] == 0)):
                 to_delete.append(i)
         clean_data = np.delete(ic_data, to_delete, axis=0)
         clean_tags_data = np.delete(tags_data, to_delete, axis=0)

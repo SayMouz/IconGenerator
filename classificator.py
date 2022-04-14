@@ -45,23 +45,20 @@ input_shape = (img_size, img_size, 1)
 model = keras.Sequential(
     [
         keras.Input(shape=input_shape),
-        layers.Conv2D(16, kernel_size=(3, 3), activation="relu", padding="same"),
-        layers.MaxPooling2D(pool_size=(2, 2)),
-        layers.Conv2D(64, kernel_size=(3, 3),
-                      kernel_initializer="lecun_normal",
-                      activation="selu", padding="same"),
-        layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
-        layers.Conv2D(64, kernel_size=(3, 3), activation="relu", strides=(3, 3)),
+        layers.Conv2D(32, (3, 3), activation='relu'),
+        layers.MaxPooling2D(2, 2),
+        layers.Conv2D(32, (3, 3), activation='relu'),
+        layers.MaxPooling2D(2, 2),
         layers.Flatten(),
-        layers.Dropout(0.5),
-        layers.Dense(num_classes, activation="sigmoid"),
+        layers.Dense(64, activation='relu'),
+        layers.Dense(num_classes, activation='sigmoid'),
     ]
 )
 model.summary()
 # -------------------------------------------------- #
 
 # ---------------- Train --------------------------#
-batch_size = 100
+batch_size = 128
 epochs = 100
 
 model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
